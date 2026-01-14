@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "Spy Cat Agency API",
+    "description": "Postman collection for Spy Cat Agency test assessment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Cats",
+      "item": [
+        {
+          "name": "Create Cat",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/cats",
+              "host": ["{{base_url}}"],
+              "path": ["cats"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Agent Whiskers\",\n  \"years_of_experience\": 5,\n  \"breed\": \"Abyssinian\",\n  \"salary\": 5000\n}"
+            }
+          }
+        },
+        {
+          "name": "List Cats",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/cats",
+              "host": ["{{base_url}}"],
+              "path": ["cats"]
+            }
+          }
+        },
+        {
+          "name": "Get Cat",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/cats/1",
+              "host": ["{{base_url}}"],
+              "path": ["cats", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Cat Salary",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/cats/1/salary",
+              "host": ["{{base_url}}"],
+              "path": ["cats", "1", "salary"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"salary\": 6000\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Cat",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/cats/1",
+              "host": ["{{base_url}}"],
+              "path": ["cats", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Missions",
+      "item": [
+        {
+          "name": "Create Mission",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/missions",
+              "host": ["{{base_url}}"],
+              "path": ["missions"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"targets\": [\n    {\n      \"name\": \"Target Alpha\",\n      \"country\": \"Germany\",\n      \"notes\": \"Initial surveillance\"\n    },\n    {\n      \"name\": \"Target Beta\",\n      \"country\": \"France\",\n      \"notes\": \"Monitoring\"\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Assign Cat to Mission",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/missions/1/assign",
+              "host": ["{{base_url}}"],
+              "path": ["missions", "1", "assign"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cat_id\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Target Notes",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/missions/1/targets/1/notes",
+              "host": ["{{base_url}}"],
+              "path": ["missions", "1", "targets", "1", "notes"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Updated intel\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Complete Target",
+          "request": {
+            "method": "PATCH",
+            "url": {
+              "raw": "{{base_url}}/missions/1/targets/1/complete",
+              "host": ["{{base_url}}"],
+              "path": ["missions", "1", "targets", "1", "complete"]
+            }
+          }
+        },
+        {
+          "name": "List Missions",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/missions",
+              "host": ["{{base_url}}"],
+              "path": ["missions"]
+            }
+          }
+        },
+        {
+          "name": "Get Mission",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/missions/1",
+              "host": ["{{base_url}}"],
+              "path": ["missions", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Mission",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/missions/1",
+              "host": ["{{base_url}}"],
+              "path": ["missions", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "spy-cats-agency"
+version = "0.1.0"
+description = "Spy Cat Agency backend test assessment"
+authors = ["Oleksandr <o.kryshtal@8allocate.com>"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+fastapi = "^0.110.0"
+uvicorn = { extras = ["standard"], version = "^0.27.1" }
+
+sqlalchemy = "^2.0.27"
+alembic = "^1.13.1"
+
+pydantic = "^2.6.1"
+pydantic-settings = "^2.2.1"
+
+httpx = "^0.27.0"
+
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
